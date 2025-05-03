@@ -1,0 +1,16 @@
+<% layout('layouts/boilerplate') %>
+<h1>Bura panel girişi!</h1>
+
+<form action="/adminpanel" method="POST">
+    <% users.forEach(user => { %>
+        <div>
+            <label for="role-<%= user._id %>"><%= user.username %> (<%= user.email %>)</label>
+            <select id="role-<%= user._id %>" name="roles[<%= user._id %>]">
+                <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Admin</option>
+                <option value="user" <%= user.role === 'user' ? 'selected' : '' %>>User</option>
+                <option value="god" <%= user.role === 'god' ? 'selected' : '' %>>God</option>
+            </select>
+        </div>
+    <% }) %>
+    <button type="submit">Update Roles</button>
+</form>
