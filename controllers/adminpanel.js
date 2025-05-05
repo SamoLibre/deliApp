@@ -1,4 +1,3 @@
-Campground = require('../models/campground');
 User = require('../models/user');
 const { isGod } = require('../middleware');
 module.exports.index = async (req, res) => {

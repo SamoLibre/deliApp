@@ -1,0 +1,9 @@
+<% layout('layouts/boilerplate') %>
+
+<h1>This is the grades page</h1>
+<p>Here you can see your grades:</p>
+<ul>
+    <% grades.forEach(function(grade) { %>
+        <li><%= grade %></li>
+    <% }); %>
+</ul>

@@ -39,4 +39,17 @@ module.exports.logout = (req, res) => {
     
 };
 
-
+module.exports.showGrades = async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id); // Fetch the logged-in user
+        if (!user) {
+            req.flash('error', 'User not found.');
+            return res.redirect('/login');
+        }
+        res.render('users/grades', { grades: user.grades });
+    } catch (err) {
+        console.error(err);
+        req.flash('error', 'Something went wrong.');
+        res.redirect('/');
+    }
+};

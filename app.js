@@ -9,8 +9,6 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
-const campgroundRoutes = require('./routes/campgrounds');
-const reviewRoutes = require('./routes/reviews');
 const usersRoutes = require('./routes/users');
 const panelRoutes = require('./routes/panelroutes');
 const { isGod } = require('./middleware');
@@ -61,10 +59,12 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use('/campgrounds', campgroundRoutes)
-app.use('/campgrounds/:id/reviews', reviewRoutes)
 app.use('/', usersRoutes)
 app.use('/', panelRoutes);
+
+app.use('/', (req, res) => {
+    res.render('home');
+})
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))

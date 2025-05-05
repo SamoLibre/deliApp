@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #1a1a1a;
+  }
+  
+  .canvas {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  
+  .line {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    height: 1px;
+    transform-origin: 0 0;
+    pointer-events: none;
+  }

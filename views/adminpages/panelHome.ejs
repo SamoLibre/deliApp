@@ -1,16 +1,27 @@
 <% layout('layouts/boilerplate') %>
-<h1>Bura panel girişi!</h1>
+    <h1 style="color:white">Bura panel girişi!</h1>
 
-<form action="/adminpanel" method="POST">
-    <% users.forEach(user => { %>
-        <div>
-            <label for="role-<%= user._id %>"><%= user.username %> (<%= user.email %>)</label>
-            <select id="role-<%= user._id %>" name="roles[<%= user._id %>]">
-                <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Admin</option>
-                <option value="user" <%= user.role === 'user' ? 'selected' : '' %>>User</option>
-                <option value="god" <%= user.role === 'god' ? 'selected' : '' %>>God</option>
-            </select>
-        </div>
-    <% }) %>
-    <button type="submit">Update Roles</button>
-</form>
+    <form action="/adminpanel" method="POST">
+        <% users.forEach(user => { %>
+            <div style="color:white">
+                <label for="role-<%= user._id %>"><%= user.username %> (<%= user.email %>)</label>
+                <select id="role-<%= user._id %>" name="roles[<%= user._id %>]">
+                    <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Admin</option>
+                    <option value="user" <%= user.role === 'user' ? 'selected' : '' %>>User</option>
+                    <option value="god" <%= user.role === 'god' ? 'selected' : '' %>>God</option>
+                </select>
+            </div>
+        <% }) %>
+        <button type="submit">Update Roles</button>
+    </form>
+
+    <div class="canvas"></div>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="./css/dots.css">
+
+    <!-- Link to the JavaScript file -->
+    <script src="./javascripts/dots.js"></script>
+
+</body>
+
+</html>
