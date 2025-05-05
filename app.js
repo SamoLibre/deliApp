@@ -12,8 +12,8 @@ const User = require('./models/user');
 const usersRoutes = require('./routes/users');
 const panelRoutes = require('./routes/panelroutes');
 const { isGod } = require('./middleware');
-const uri = "mongodb+srv://samilberslan:MuTiRb8yRUJBU5kD@portaldb.uri1cv9.mongodb.net/?retryWrites=true&w=majority&appName=portalDB";
-
+const dotenv = require('dotenv').config();
+const uri = process.env.MONGO_URI;
 mongoose.connect(uri,).then(() => {
     console.log("MongoDB connected");
 }).catch(err => {
