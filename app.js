@@ -12,7 +12,13 @@ const User = require('./models/user');
 const usersRoutes = require('./routes/users');
 const panelRoutes = require('./routes/panelroutes');
 const { isGod } = require('./middleware');
-mongoose.connect('mongodb://localhost:27017/yelp-camp');
+const uri = "mongodb+srv://samilberslan:MuTiRb8yRUJBU5kD@portaldb.uri1cv9.mongodb.net/?retryWrites=true&w=majority&appName=portalDB";
+
+mongoose.connect(uri,).then(() => {
+    console.log("MongoDB connected");
+}).catch(err => {
+    console.log(err);
+});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
