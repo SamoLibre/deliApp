@@ -1,118 +1,44 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #0a0a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Orbitron', sans-serif;
-}
-
-.portal-container {
+    background-image: url('/images/maxresdefault.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
     position: relative;
-    text-align: center;
-    z-index: 1;
+    animation: fadeIn 1.5s ease-in-out; /* Add fade-in animation */
 }
 
-.portal-title {
-    font-size: 5rem;
-    font-weight: 700;
-    color: transparent;
-    background: linear-gradient(90deg, #00fffc, #ff00f7, #00fffc);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: shine 3s linear infinite, float 4s ease-in-out infinite;
-    text-shadow: 0 0 10px rgba(0, 255, 252, 0.3);
-    margin: 0;
-}
-
-/* Logo Stili */
-.logo-background {
+body::before {
+    content: '';
     position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    background: url('https://res.cloudinary.com/dyqkxbb70/image/upload/v1746298228/deliLogoBeyaz_y63cds.png') center/contain no-repeat;
-    opacity: 0.3;
-    z-index: -1;
-    animation: pulse 6s ease-in-out infinite, rotate 20s linear infinite;
-}
-
-@keyframes shine {
-    0% { background-position: 0% center; }
-    100% { background-position: 200% center; }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.2; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
-}
-
-@keyframes rotate {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Parlak Noktalar */
-.particle {
-    position: absolute;
-    background-color: rgba(0, 255, 252, 0.7);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
-}
-.navbar {
-    position: fixed; /* Üste sabitler */
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #333;
-    color: white;
-    z-index: 1000; /* Diğer elementlerin önüne çıkar */
-    padding: 10px 20px;
-}
-
-.navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-.navbar ul li {
-    display: inline;
-}
-
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-}
-
-.portal-container {
-    margin-top: 60px; /* Navbar'ın yüksekliğine göre ayarlayın */
-}
-
-.logo-background {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    background: url('https://res.cloudinary.com/dyqkxbb70/image/upload/v1746298228/deliLogoBeyaz_y63cds.png') center/contain no-repeat;
-    opacity: 0.3;
+    height: 100%;
+    background: rgba(7, 7, 7, 0.8); /* Adjust the opacity here (0.5 = 50%) */
     z-index: -1;
-    animation: pulse 6s ease-in-out infinite, rotate 20s linear infinite;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* Start with no opacity */
+    z-index: 9999;
+    display: none; /* Initially hidden */
+    transition: background 0.2s ease; /* Smooth transition for the background */
+}
+
+#overlay.active {
+    display: block; /* Make it visible */
+    background: rgba(0, 0, 0, 0.8); /* Dark background */
+    transition: background 0.4s ease; /* Smooth transition for the background */
 }

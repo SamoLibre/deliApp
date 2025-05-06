@@ -44,7 +44,7 @@ function connectDots() {
       const dot2 = dots[j];
       
       // Mesafe hesapla (çizgi çizmek için)
-      const distance = Math.sqrt(
+      const distance = Math.sqrt( 
         Math.pow(dot2.x - dot1.x, 2) + 
         Math.pow(dot2.y - dot1.y, 2)
       );
