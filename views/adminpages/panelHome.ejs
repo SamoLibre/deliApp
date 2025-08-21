@@ -1,27 +1,41 @@
 <% layout('layouts/boilerplate') %>
-    <h1 style="color:white">Bura panel girişi!</h1>
+<h1 style="color:white">Bura panel girişi!</h1>
 
-    <form action="/adminpanel" method="POST">
-        <% users.forEach(user => { %>
-            <div style="color:white">
-                <label for="role-<%= user._id %>"><%= user.username %> (<%= user.email %>)</label>
-                <select id="role-<%= user._id %>" name="roles[<%= user._id %>]">
-                    <option value="admin" <%= user.role === 'admin' ? 'selected' : '' %>>Admin</option>
-                    <option value="user" <%= user.role === 'user' ? 'selected' : '' %>>User</option>
-                    <option value="god" <%= user.role === 'god' ? 'selected' : '' %>>God</option>
-                </select>
-            </div>
-        <% }) %>
-        <button type="submit">Update Roles</button>
-    </form>
+<form action="/adminpanel" method="POST">
+    <% users.forEach(user => { %>
+        <div style="color:white">
+            <label for="role-<%= user._id %>"><%= user.username %> (<%= user.email %>)</label>
+            <select id="role-<%= user._id %>" name="roles[<%= user._id %>]">
+                <% allowedRoles.forEach(role => { %>
+                    <option value="<%= role %>" <%= user.role === role ? 'selected' : '' %>><%= role.charAt(0).toUpperCase() + role.slice(1) %></option>
+                <% }) %>
+            </select>
+            <!-- Delete button form -->
+            <form action="/adminpanel/<%= user._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this user?');" style="margin-left:10px;color:white;background:red;border:none;padding:4px 10px;border-radius:4px;">Delete</button>
+            </form>
+        </div>
+    <% }) %>
+    <button type="submit">Update Roles</button>
+</form>
+<br>
+<a href="/adminpanel/newUser" class="btn btn-primary">Create New User</a>
+<br><br>
 
-    <div class="canvas"></div>
-    <!-- Link to the CSS file -->
-    <link rel="stylesheet" href="./css/dots.css">
+<!-- News quick post form -->
+<form action="/news" method="POST" style="max-width:400px;">
+    <div class="mb-3">
+        <label for="newsTitle" class="form-label" style="color:white;">Haber Başlığı</label>
+        <input type="text" class="form-control" id="newsTitle" name="title" required>
+    </div>
+    <div class="mb-3">
+        <label for="newsContent" class="form-label" style="color:white;">Haber İçeriği</label>
+        <textarea class="form-control" id="newsContent" name="content" rows="2" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Haber Ekle</button>
+</form>
 
-    <!-- Link to the JavaScript file -->
-    <script src="./javascripts/dots.js"></script>
-
-</body>
-
-</html>
+<br><br>
+<div class="canvas"></div>
+<link rel="stylesheet" href="./css/dots.css">
+<script src="./javascripts/dots.js"></script>

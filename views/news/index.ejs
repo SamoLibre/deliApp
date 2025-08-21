@@ -1,9 +1,21 @@
 <% layout('layouts/boilerplate') %>
 <div class="container mt-4">
-    <h1>News</h1>
-    <p>Burada haber bölümleri ve sabit bilgiler olacak.</p>
-    <h2>Sınav Takvimi</h2>
-    <div id="month-grid" class="row"></div>
+    <h1>Haberler</h1>
+    <% if (currentUser && (currentUser.role === 'admin' || currentUser.role === 'god')) { %>
+        <a href="/news/new" class="btn btn-success mb-3">Yeni Haber Ekle</a>
+    <% } %>
+    <% newsList.forEach(news => { %>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4><%= news.title %></h4>
+                <p><%= news.content %></p>
+                <small class="text-muted">Yayınlayan: <%= news.author.username %> | <%= news.createdAt.toLocaleString('tr-TR') %></small>
+            </div>
+        </div>
+    <% }) %>
+    <hr>
+    <h2 class="mt-5 mb-3">Sınav Takvimi</h2>
+    <div class="row" id="month-grid"></div>
 </div>
 <script>
 const monthNames = [

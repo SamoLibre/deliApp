@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate')%>
+<div style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; height: 100vh; text-align: center; padding-top: 20px;">
+    <h1 class="text-center mb-4">Register</h1>
+    <form action="/adminpanel/newUser" method="POST" style="width: 100%; max-width: 400px;">
+        <div class="mb-3">
+            <label class="form-label" for="username">Username</label>
+            <input class="form-control" type="text" id="username" name="username" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" type="password" id="password" name="password" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="role">Role</label>
+            <select class="form-select" id="role" name="role" required>
+                <option value="" disabled selected>Select a role</option>
+                <% allowedRoles.forEach(role => { %>
+                    <option value="<%= role %>"><%= role.charAt(0).toUpperCase() + role.slice(1) %></option>
+                <% }) %>
+            </select>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <button class="btn btn-success w-100" type="submit">Register</button>
+    </form>
+</div>

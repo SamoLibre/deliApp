@@ -11,7 +11,7 @@ const UserSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ['admin', 'student', 'teacher', 'god'],
+        enum: ['admin', 'teacher', 'student', 'god'],
         default: 'student',
     },
     grades: {
@@ -20,7 +20,11 @@ const UserSchema = new Schema({
     }
 });
 
+const allowedRoles = ['admin', 'teacher', 'student', 'god'];
+
 UserSchema.plugin(passportLocalMongoose);
 
+const User = mongoose.model('User', UserSchema);
+User.allowedRoles = allowedRoles;
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = User;
