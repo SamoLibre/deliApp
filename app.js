@@ -71,16 +71,17 @@ app.use('/', usersRoutes)
 app.use('/', panelRoutes);
 app.use('/news', newsRoutes);
 
-app.use('/', (req, res) => {
-    res.render('home');
-})
-
-app.all('*', (req, res, next) => {
-    next(new ExpressError('Page Not Found', 404))
-})
 
 app.get('/login', (req, res) => {
     res.render('users/login')
+})
+
+app.get('/', (req, res) => {
+    res.render('home');
+});
+
+app.all('*', (req, res, next) => {
+    next(new ExpressError('Page Not Found', 404))
 })
 
 app.use((err, req, res, next) => {

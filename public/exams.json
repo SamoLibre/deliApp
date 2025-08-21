@@ -1,72 +1,18 @@
 [
-  {
-    "month": "Eylül",
-    "year": 2025,
-    "exams": [
-      { "name": "Tyt ilk prova", "date": "19-22 Eylül", "brand": "Özdebir" }
-    ]
-  },
-  {
-    "month": "Ekim",
-    "year": 2025,
-    "exams": [
-      { "name": "Yks Deneme 1", "date": "17-20 Ekim", "brand": "Özdebir" }
-    ]
-  },
-  {
-    "month": "Kasım",
-    "year": 2025,
-    "exams": [
-      { "name": "Tyt Deneme Sınavı", "date": "7-10 Kasım", "brand": "Töder" },
-      { "name": "Yks Deneme 2", "date": "28 Kasım - 1 Aralık", "brand": "Özdebir" }
-    ]
-  },
-  {
-    "month": "Aralık",
-    "year": 2025,
-    "exams": [
-      { "name": "Yks Deneme 2", "date": "28 Kasım - 1 Aralık", "brand": "Özdebir" }
-    ]
-  },
-  {
-    "month": "Ocak",
-    "year": 2026,
-    "exams": [
-      { "name": "Yks 1", "date": "8-11 Ocak", "brand": "Töder" },
-      { "name": "Yks Deneme 3", "date": "9-12 Ocak", "brand": "Özdebir" },
-      { "name": "MSÜ Denemesi", "date": "16-17 Ocak", "brand": "Özdebir" }
-    ]
-  },
-  {
-    "month": "Şubat",
-    "year": 2026,
-    "exams": [
-      { "name": "Yks Deneme 4", "date": "13-16 Şubat", "brand": "Özdebir" }
-    ]
-  },
-  {
-    "month": "Mart",
-    "year": 2026,
-    "exams": [
-      { "name": "Yks Deneme 5", "date": "12-15 Mart", "brand": "Özdebir" },
-      { "name": "Yks 2", "date": "12-15 Mart", "brand": "Töder" }
-    ]
-  },
-  {
-    "month": "Nisan",
-    "year": 2026,
-    "exams": [
-      { "name": "Yks özel derece sınavı", "date": "17-18 Nisan", "brand": "Özdebir" },
-      { "name": "Yks Deneme 6", "date": "24-27 Nisan", "brand": "Özdebir" }
-    ]
-  },
-  {
-    "month": "Mayıs",
-    "year": 2026,
-    "exams": [
-      { "name": "Yks 3", "date": "7-10 Mayıs", "brand": "Töder" },
-      { "name": "Yks Deneme 7 (Son prova)", "date": "15-18 Mayıs", "brand": "Özdebir" },
-      { "name": "Yks Son prova", "date": "22-25 Mayıs", "brand": "Töder" }
-    ]
-  }
+  { "title": "Tyt ilk prova (Özdebir)", "start": "2025-09-19", "end": "2025-09-22" },
+  { "title": "Yks Deneme 1 (Özdebir)", "start": "2025-10-17", "end": "2025-10-20" },
+  { "title": "Tyt Deneme Sınavı (Töder)", "start": "2025-11-07", "end": "2025-11-10" },
+  { "title": "Yks Deneme 2 (Özdebir)", "start": "2025-11-28", "end": "2025-12-01" },
+  { "title": "Yks Deneme 2 (Özdebir)", "start": "2025-11-28", "end": "2025-12-01" },
+  { "title": "Yks 1 (Töder)", "start": "2026-01-08", "end": "2026-01-11" },
+  { "title": "Yks Deneme 3 (Özdebir)", "start": "2026-01-09", "end": "2026-01-12" },
+  { "title": "MSÜ Denemesi (Özdebir)", "start": "2026-01-16", "end": "2026-01-17" },
+  { "title": "Yks Deneme 4 (Özdebir)", "start": "2026-02-13", "end": "2026-02-16" },
+  { "title": "Yks Deneme 5 (Özdebir)", "start": "2026-03-12", "end": "2026-03-15" },
+  { "title": "Yks 2 (Töder)", "start": "2026-03-12", "end": "2026-03-15" },
+  { "title": "Yks özel derece sınavı (Özdebir)", "start": "2026-04-17", "end": "2026-04-18" },
+  { "title": "Yks Deneme 6 (Özdebir)", "start": "2026-04-24", "end": "2026-04-27" },
+  { "title": "Yks 3 (Töder)", "start": "2026-05-07", "end": "2026-05-10" },
+  { "title": "Yks Deneme 7 (Son prova) (Özdebir)", "start": "2026-05-15", "end": "2026-05-18" },
+  { "title": "Yks Son prova (Töder)", "start": "2026-05-22", "end": "2026-05-25" }
 ]
