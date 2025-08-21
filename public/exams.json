@@ -1,0 +1,72 @@
+[
+  {
+    "month": "Eylül",
+    "year": 2025,
+    "exams": [
+      { "name": "Tyt ilk prova", "date": "19-22 Eylül", "brand": "Özdebir" }
+    ]
+  },
+  {
+    "month": "Ekim",
+    "year": 2025,
+    "exams": [
+      { "name": "Yks Deneme 1", "date": "17-20 Ekim", "brand": "Özdebir" }
+    ]
+  },
+  {
+    "month": "Kasım",
+    "year": 2025,
+    "exams": [
+      { "name": "Tyt Deneme Sınavı", "date": "7-10 Kasım", "brand": "Töder" },
+      { "name": "Yks Deneme 2", "date": "28 Kasım - 1 Aralık", "brand": "Özdebir" }
+    ]
+  },
+  {
+    "month": "Aralık",
+    "year": 2025,
+    "exams": [
+      { "name": "Yks Deneme 2", "date": "28 Kasım - 1 Aralık", "brand": "Özdebir" }
+    ]
+  },
+  {
+    "month": "Ocak",
+    "year": 2026,
+    "exams": [
+      { "name": "Yks 1", "date": "8-11 Ocak", "brand": "Töder" },
+      { "name": "Yks Deneme 3", "date": "9-12 Ocak", "brand": "Özdebir" },
+      { "name": "MSÜ Denemesi", "date": "16-17 Ocak", "brand": "Özdebir" }
+    ]
+  },
+  {
+    "month": "Şubat",
+    "year": 2026,
+    "exams": [
+      { "name": "Yks Deneme 4", "date": "13-16 Şubat", "brand": "Özdebir" }
+    ]
+  },
+  {
+    "month": "Mart",
+    "year": 2026,
+    "exams": [
+      { "name": "Yks Deneme 5", "date": "12-15 Mart", "brand": "Özdebir" },
+      { "name": "Yks 2", "date": "12-15 Mart", "brand": "Töder" }
+    ]
+  },
+  {
+    "month": "Nisan",
+    "year": 2026,
+    "exams": [
+      { "name": "Yks özel derece sınavı", "date": "17-18 Nisan", "brand": "Özdebir" },
+      { "name": "Yks Deneme 6", "date": "24-27 Nisan", "brand": "Özdebir" }
+    ]
+  },
+  {
+    "month": "Mayıs",
+    "year": 2026,
+    "exams": [
+      { "name": "Yks 3", "date": "7-10 Mayıs", "brand": "Töder" },
+      { "name": "Yks Deneme 7 (Son prova)", "date": "15-18 Mayıs", "brand": "Özdebir" },
+      { "name": "Yks Son prova", "date": "22-25 Mayıs", "brand": "Töder" }
+    ]
+  }
+]

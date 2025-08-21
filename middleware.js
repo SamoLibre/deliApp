@@ -1,7 +1,4 @@
-//const { campgroundSchema , reviewSchema} = require('./schemas.js');
 const ExpressError = require('./utils/ExpressError');
-//const Campground = require('./models/campground');
-//const Review = require('./models/review');
 const User = require('./models/user');
 module.exports.storeReturnTo = (req, res, next) => {
     if (req.session.returnTo){
@@ -23,7 +20,7 @@ module.exports.isGod = (req, res, next) => {
     const user = User.findById(id);
     if (req.user.role !== 'god') {
         req.flash('error', 'You do not have permission to do that!');
-        return res.redirect('/campgrounds');
+        return res.redirect('/');
     }
     next();
 }

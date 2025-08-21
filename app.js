@@ -9,6 +9,7 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+const newsRoutes = require('./routes/news');
 const usersRoutes = require('./routes/users');
 const panelRoutes = require('./routes/panelroutes');
 const { isGod } = require('./middleware');
@@ -68,6 +69,7 @@ app.use((req, res, next) => {
 
 app.use('/', usersRoutes)
 app.use('/', panelRoutes);
+app.use('/news', newsRoutes);
 
 app.use('/', (req, res) => {
     res.render('home');
