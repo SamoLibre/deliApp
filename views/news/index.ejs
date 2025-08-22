@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %>
 <div class="container mt-4">
-    <h1>Haberler</h1>
+    <h1>News</h1>
     <% if (currentUser && (currentUser.role === 'admin' || currentUser.role === 'god')) { %>
         <a href="/news/new" class="btn btn-success mb-3">Yeni Haber Ekle</a>
     <% } %>
@@ -14,58 +14,6 @@
         </div>
     <% }) %>
     <hr>
-    <h2 class="mt-5 mb-3">Sınav Takvimi</h2>
+    <h2 class="mt-5 mb-3">YKS Dates</h2>
     <div class="row" id="month-grid"></div>
 </div>
-<script>
-const monthNames = [
-    "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
-    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
-];
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('/news/exams')
-        .then(res => res.json())
-        .then(data => {
-            const examsByMonth = Array.from({length: 12}, () => []);
-            data.forEach(exam => {
-                const month = new Date(exam.start).getMonth();
-                examsByMonth[month].push(exam);
-            });
-            const grid = document.getElementById('month-grid');
-            for(let i=0; i<12; i++) {
-                const col = document.createElement('div');
-                col.className = "col-md-3 mb-4";
-                col.innerHTML = `
-                    <div class="card h-100">
-                        <div class="card-header text-center font-weight-bold"><span style="color: black;">${monthNames[i]}</span></div>
-                        <ul class="list-group list-group-flush">
-                            ${
-                                examsByMonth[i].length === 0
-                                ? '<li class="list-group-item text-muted">Yok</li>'
-                                : examsByMonth[i].map(exam => {
-                                    const startDate = new Date(exam.start);
-                                    const endDate = exam.end ? new Date(exam.end) : null;
-                                    const monthName = monthNames[startDate.getMonth()];
-                                    const startDay = startDate.getDate();
-                                    let dateStr = '';
-                                    if (endDate && (startDate.getTime() !== endDate.getTime()) && startDate.getMonth() === endDate.getMonth()) {
-                                        // Same month, show as "8-11 Mart"
-                                        dateStr = `${startDay}-${endDate.getDate()} ${monthName}`;
-                                    } else if (endDate && (startDate.getTime() !== endDate.getTime())) {
-                                        // Different months, show as "28 Şubat - 2 Mart"
-                                        dateStr = `${startDay} ${monthNames[startDate.getMonth()]} - ${endDate.getDate()} ${monthNames[endDate.getMonth()]}`;
-                                    } else {
-                                        // Single day
-                                        dateStr = `${startDay} ${monthName}`;
-                                    }
-                                    return `<li class="list-group-item" style="color: black;"><span style="color: black;">${exam.title}</span><br><small style="color: black;">${dateStr}</small></li>`;
-                                }).join('')
-                            }
-                        </ul>
-                    </div>
-                `;
-                grid.appendChild(col);
-            }
-        });
-    });
-</script>
