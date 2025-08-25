@@ -34,8 +34,9 @@ app.use(methodOverride('_method'));
 app.use(express.json());
 
 const allowedOrigins = [
-  'http://localhost:5173', // local dev
-  'https://your-frontend.onrender.com' // your deployed frontend
+  'https://deliapp-1.onrender.com',
+  'https://deliapp.onrender.com',
+  'http://localhost:5173'
 ];
 
 app.use(cors({
